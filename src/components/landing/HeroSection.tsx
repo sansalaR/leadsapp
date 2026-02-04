@@ -1,168 +1,171 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Users, Mail, Download, Zap, Search, CheckCircle } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { ArrowRight, Play, Star, Chrome, User, MapPin, Building2, Search, Download, Phone, Mail } from "lucide-react";
 
 export const HeroSection = () => {
+  const mockLeads = [
+  { name: "Sarah Chen", role: "VP of Sales", company: "TechCorp", location: "San Francisco", email: "sarah.c***@techcorp.com", phone: "+1 (415) ***-**42" },
+  { name: "Michael Roberts", role: "Head of Growth", company: "ScaleUp Inc", location: "New York", email: "m.robe***@scaleup.io", phone: "+1 (212) ***-**18" },
+  { name: "Emma Thompson", role: "Director of BD", company: "CloudBase", location: "Austin", email: "emma.t***@cloudbase.com", phone: "+1 (512) ***-**55" },
+  { name: "David Kim", role: "CRO", company: "DataFlow", location: "Seattle", email: "d.kim***@dataflow.co", phone: "+1 (206) ***-**73" },
+  { name: "Lisa Anderson", role: "Sales Director", company: "Nexus AI", location: "Boston", email: "l.ande***@nexusai.com", phone: "+1 (617) ***-**91" },
+];
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 bg-mesh" />
-      <div className="absolute inset-0 bg-grid opacity-30" />
+    <section className="relative pt-18 pb-1 lg:pt-26 lg:pb-14 bg-slate-50 dark:bg-slate-950">
+      {/* Visible background pattern */}
+      <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50" 
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+      />
       
-      {/* Floating orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-blob" />
-      <div className="absolute top-40 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-blob stagger-2" />
-      <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-morph" />
-      
-      {/* Floating geometric shapes */}
-      <div className="absolute top-32 right-[15%] w-20 h-20 border-2 border-accent/30 rounded-2xl rotate-12 animate-float opacity-60" />
-      <div className="absolute top-48 left-[10%] w-16 h-16 bg-accent/20 rounded-full animate-float-delayed" />
-      <div className="absolute bottom-32 right-[20%] w-12 h-12 border-2 border-purple-400/30 rounded-lg rotate-45 animate-float-slow" />
-      <div className="absolute top-60 right-[30%] w-8 h-8 bg-gradient-to-br from-accent to-purple-500 rounded-full animate-bounce-subtle opacity-60" />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Animated Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass border-accent/30 mb-8 opacity-0 animate-fade-up shadow-lg">
-            <div className="relative">
-              <Sparkles className="w-4 h-4 text-accent" />
-              <div className="absolute inset-0 animate-ping">
-                <Sparkles className="w-4 h-4 text-accent opacity-50" />
-              </div>
-            </div>
-            <span className="text-sm font-semibold bg-gradient-to-r from-accent to-purple-500 bg-clip-text text-transparent">
-              AI-Powered Lead Generation
-            </span>
-            <span className="px-2 py-0.5 text-xs font-bold bg-accent/20 text-accent rounded-full">NEW</span>
-          </div>
+      {/* Gradient overlays */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
+        
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
           
-          {/* Headline with gradient */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-foreground leading-[1.1] mb-8 opacity-0 animate-fade-up stagger-1">
-            Find Verified Leads with
+          {/* Badge */}
+          <Badge className="mb-8 bg-muted/50 text-muted-foreground px-3 py-1 inline-flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-green-500" />
+            Now with AI-powered lead generation
+          </Badge>
+
+          {/* Headline */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] tracking-tight mb-6">
+            Find verified B2B leads
             <br />
-            <span className="text-gradient animate-gradient relative">
-              Emails & Phone Numbers
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 400 12" fill="none">
-                <path d="M2 10C100 2 300 2 398 10" stroke="url(#underline-gradient)" strokeWidth="3" strokeLinecap="round" className="opacity-50"/>
-                <defs>
-                  <linearGradient id="underline-gradient" x1="0" y1="0" x2="400" y2="0">
-                    <stop stopColor="hsl(199 89% 48%)" />
-                    <stop offset="1" stopColor="hsl(250 80% 60%)" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
+            <span className="text-muted-foreground">with emails & phone numbers</span>
           </h1>
-          
+
           {/* Subheadline */}
-          <p className="text-xl sm:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 opacity-0 animate-fade-up stagger-2 leading-relaxed">
-            Access <span className="font-semibold text-foreground">millions of B2B contacts</span> with verified emails and phones. 
-            Generate leads with <span className="text-accent font-semibold">AI</span> or search manually — then export to CSV.
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            Access millions of B2B contacts. Search manually or let AI generate targeted leads. Export to CSV and start your outreach today.
           </p>
-          
+
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 opacity-0 animate-fade-up stagger-3">
-            <Button variant="hero" size="xl" className="w-full sm:w-auto group animate-pulse-glow">
-              <span>Start Finding Leads</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
+            <Button size="lg" className="w-full sm:w-auto h-12 px-6 text-base">
+              Start free trial
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
-            <Button variant="heroOutline" size="xl" className="w-full sm:w-auto group">
-              <span>Watch Demo</span>
-              <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center ml-1 group-hover:bg-accent/30 transition-colors">
-                <div className="w-0 h-0 border-l-[6px] border-l-accent border-y-[4px] border-y-transparent ml-0.5" />
-              </div>
+            <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 px-6 text-base">
+              <Play className="w-4 h-4 mr-2" />
+              Watch demo
             </Button>
           </div>
-          
-          {/* Stats with icons */}
-          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto opacity-0 animate-fade-up stagger-4">
-            {[
-              { icon: Users, value: "50M+", label: "Verified Contacts", color: "from-accent to-blue-500" },
-              { icon: Mail, value: "95%", label: "Email Accuracy", color: "from-green-400 to-emerald-500" },
-              { icon: Download, value: "1M+", label: "Leads Exported", color: "from-purple-400 to-pink-500" },
-            ].map((stat, index) => (
-              <div key={stat.label} className="group relative p-6 rounded-2xl glass hover-lift cursor-default">
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <div className={`p-2 rounded-lg bg-gradient-to-br ${stat.color}`}>
-                    <stat.icon className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-3xl sm:text-4xl font-black text-foreground">{stat.value}</span>
-                </div>
-                <p className="text-sm text-muted-foreground font-medium">{stat.label}</p>
-              </div>
-            ))}
+
+          {/* Stats row */}
+          <div className="flex items-center justify-center mb-12 gap-8 sm:gap-12 text-sm">
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-bold text-foreground">50M+</div>
+              <div className="text-muted-foreground">Verified contacts</div>
+            </div>
+            <Separator orientation="vertical" className="h-10" />
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-bold text-foreground">95%</div>
+              <div className="text-muted-foreground">Email accuracy</div>
+            </div>
+            <Separator orientation="vertical" className="h-10" />
+            <div className="text-center">
+              <div className="text-2xl sm:text-3xl font-bold text-foreground">10K+</div>
+              <div className="text-muted-foreground">Active teams</div>
+            </div>
           </div>
         </div>
 
-        {/* Floating preview card */}
-        <div className="mt-20 max-w-4xl mx-auto opacity-0 animate-slide-up stagger-5">
-          <div className="relative">
-            {/* Glow effect behind card */}
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-purple-500/20 to-accent/20 blur-3xl scale-110" />
-            
-            <div className="relative glass rounded-3xl p-2 shadow-2xl">
-              <div className="bg-card rounded-2xl overflow-hidden border border-border/50">
-                {/* Browser header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-muted/50 border-b border-border/50">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="flex-1 flex justify-center">
-                    <div className="px-4 py-1 bg-background rounded-lg text-xs text-muted-foreground font-mono">
-                      leadflow.app/search
+        {/* Product UI Mockup */}
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-xl border border-border bg-card shadow-2xl shadow-primary/5 overflow-hidden">
+            {/* Browser chrome */}
+            <div className="h-10 bg-muted/50 border-b border-border flex items-center px-4 gap-2">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-red-400/70" />
+                <div className="w-3 h-3 rounded-full bg-amber-400/70" />
+                <div className="w-3 h-3 rounded-full bg-green-400/70" />
+              </div>
+              <div className="flex-1 flex justify-center">
+                <div className="px-4 py-1 rounded-md bg-background border border-border text-xs text-muted-foreground">
+                  app.leadflow.io/search
+                </div>
+              </div>
+            </div>
+
+            {/* App interface */}
+            <div className="p-4 lg:p-6">
+              {/* Search filters */}
+              <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-6">
+                <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border bg-background">
+                  <User className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm text-foreground">VP of Sales</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border bg-background">
+                  <Building2 className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm text-foreground">SaaS, Tech</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-border bg-background">
+                  <MapPin className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-sm text-foreground">United States</span>
+                </div>
+                <Button className="gap-2">
+                  <Search className="w-4 h-4" />
+                  Search
+                </Button>
+              </div>
+
+              {/* Results header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-foreground">2,847 results</span>
+                  <span className="text-xs text-muted-foreground">•</span>
+                  <span className="text-xs text-muted-foreground">5 selected</span>
+                </div>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Download className="w-3.5 h-3.5" />
+                  Export CSV
+                </Button>
+              </div>
+
+              {/* Results table */}
+              <div className="rounded-lg border border-border overflow-hidden">
+                {/* Table header */}
+                <div className="grid grid-cols-12 gap-2 px-4 py-3 bg-muted/30 text-xs font-medium text-muted-foreground border-b border-border">
+                  <div className="col-span-3">Name & Role</div>
+                  <div className="col-span-2">Company</div>
+                  <div className="col-span-2 hidden md:block">Location</div>
+                  <div className="col-span-3">Email</div>
+                  <div className="col-span-2">Phone</div>
+                </div>
+
+                {/* Table rows */}
+                {mockLeads.map((lead, index) => (
+                  <div
+                    key={lead.name}
+                    className={`grid grid-cols-12 gap-2 px-4 py-3 text-sm items-center ${
+                      index < mockLeads.length - 1 ? "border-b border-border" : ""
+                    } ${index % 2 === 0 ? "bg-background" : "bg-muted/20"}`}
+                  >
+                    <div className="col-span-3">
+                      <div className="font-medium text-foreground">{lead.name}</div>
+                      <div className="text-xs text-muted-foreground">{lead.role}</div>
+                    </div>
+                    <div className="col-span-2 text-foreground">{lead.company}</div>
+                    <div className="col-span-2 hidden md:block text-muted-foreground">{lead.location}</div>
+                    <div className="col-span-3 flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5 text-primary" />
+                      <span className="text-foreground text-xs font-mono">{lead.email}</span>
+                    </div>
+                    <div className="col-span-2 flex items-center gap-1.5">
+                      <Phone className="w-3.5 h-3.5 text-green-500" />
+                      <span className="text-foreground text-xs font-mono">{lead.phone}</span>
                     </div>
                   </div>
-                </div>
-                
-                {/* Mock search interface */}
-                <div className="p-6">
-                  <div className="flex gap-3 mb-6">
-                    <div className="flex-1 flex items-center gap-3 px-4 py-3 rounded-xl bg-muted/50 border border-border">
-                      <Search className="w-5 h-5 text-muted-foreground" />
-                      <span className="text-muted-foreground">Search by job title, company, or industry...</span>
-                    </div>
-                    <button className="px-6 py-3 bg-accent-gradient text-white font-semibold rounded-xl shadow-glow">
-                      Search
-                    </button>
-                  </div>
-                  
-                  {/* Mock results */}
-                  <div className="space-y-3">
-                    {[
-                      { name: "Sarah Chen", role: "VP of Sales", company: "TechCorp", email: "s.chen@..." },
-                      { name: "Michael Roberts", role: "Head of Growth", company: "ScaleUp Inc", email: "m.roberts@..." },
-                      { name: "Emily Johnson", role: "Director of BD", company: "StartupXYZ", email: "e.johnson@..." },
-                    ].map((lead, i) => (
-                      <div 
-                        key={lead.name} 
-                        className="flex items-center justify-between p-4 rounded-xl bg-muted/30 border border-border/50 opacity-0 animate-fade-up"
-                        style={{ animationDelay: `${1 + i * 0.15}s` }}
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-purple-500 flex items-center justify-center text-white font-bold">
-                            {lead.name[0]}
-                          </div>
-                          <div>
-                            <div className="font-semibold text-foreground">{lead.name}</div>
-                            <div className="text-sm text-muted-foreground">{lead.role} at {lead.company}</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="flex items-center gap-1.5 text-sm text-accent">
-                            <CheckCircle className="w-4 h-4" />
-                            <span>{lead.email}</span>
-                          </div>
-                          <button className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-colors">
-                            <Zap className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

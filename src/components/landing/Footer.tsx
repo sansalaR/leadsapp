@@ -25,11 +25,11 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-16">
           {/* Brand column */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4 group cursor-pointer">
-              <div className="relative w-10 h-10 rounded-xl bg-accent-gradient flex items-center justify-center shadow-glow transition-transform group-hover:scale-110">
-                <Zap className="w-5 h-5 text-accent-foreground" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">L</span>
               </div>
-              <span className="text-xl font-bold text-foreground">LeadFlow</span>
+              <span className="text-lg font-semibold text-foreground">LeadFlow</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Find verified B2B leads with emails and phone numbers. Powered by AI.
@@ -72,7 +72,7 @@ export const Footer = () => {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 LeadFlow. All rights reserved.
+            © 2026 LeadFlow. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
