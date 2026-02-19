@@ -21,12 +21,12 @@ export const NavBar = () => {
     }`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2 cursor-pointer">
+          <a href="#hero" className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">L</span>
             </div>
             <span className="text-lg font-semibold text-foreground">LeadFlow</span>
-          </div>
+          </a>
           
           <div className="hidden md:flex items-center gap-8">
             {["Features", "How It Works", "Pricing"].map((item) => (
@@ -54,7 +54,7 @@ export const NavBar = () => {
         </div>
 
         {mobileOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border bg-white">
             <div className="flex flex-col gap-2">
               {["Features", "How It Works", "Pricing"].map((item) => (
                 <a 
@@ -66,8 +66,8 @@ export const NavBar = () => {
                 </a>
               ))}
               <div className="pt-2 flex flex-col gap-2">
-                <Button variant="ghost" className="justify-start">Log in</Button>
-                <Button>Get started</Button>
+                <Button variant="outline" className="w-full justify-center">Log in</Button>
+                <Button className="w-full justify-center">Get started</Button>
               </div>
             </div>
           </div>

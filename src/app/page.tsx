@@ -1,5 +1,6 @@
 import { NavBar } from "@/components/landing/NavBar";
 import { HeroSection } from "@/components/landing/HeroSection";
+import { LeadsTableSection } from "@/components/landing/LeadsTableSection"
 import { TrustedBy } from "@/components/landing/TrustedBy";
 import { FeaturesSection } from "@/components/landing/FeaturesSection";
 import { HowItWorksSection } from "@/components/landing/HowItWorksSection";
@@ -18,6 +19,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <NavBar />
       <HeroSection />
+      <LeadsTableSection />
       <TrustedBy />
       <FeaturesSection />
       <HowItWorksSection />
@@ -29,7 +31,7 @@ const Index = () => {
       <DataSourcesSection />
       <FAQSection />
       <CTASection />
-      <Footer />
+      <Footer /> 
     </div>
   );
 };

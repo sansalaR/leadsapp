@@ -9,66 +9,60 @@ const fields = [
     label: "Email address",
     description: "Work email, verified monthly",
     availability: "95%",
-    gradient: "from-slate-500/10 to-gray-500/10",
-    iconBg: "bg-slate-500/10",
-    iconColor: "text-slate-700 dark:text-slate-300"
+    gradient: "from-blue-100 to-blue-400",
+    iconBg: "bg-white",
+    iconColor: "text-blue-700 dark:text-blue-700"
   },
   {
     icon: Phone,
     label: "Phone number",
     description: "Direct line when available",
     availability: "70%",
-    gradient: "from-zinc-500/10 to-neutral-500/10",
-    iconBg: "bg-zinc-500/10",
-    iconColor: "text-zinc-700 dark:text-zinc-300"
+    gradient: "from-blue-100 to-blue-400",
+    iconBg: "bg-white",
+    iconColor: "text-blue-700 dark:text-blue-700"
   },
   {
     icon: Briefcase,
     label: "Work history",
     description: "Current and past positions",
     availability: "90%",
-    gradient: "from-gray-500/10 to-slate-500/10",
-    iconBg: "bg-gray-500/10",
-    iconColor: "text-gray-700 dark:text-gray-300"
+    gradient: "from-blue-100 to-blue-400",
+    iconBg: "bg-white",
+    iconColor: "text-blue-700 dark:text-blue-700"
   },
   {
     icon: Building,
     label: "Company details",
     description: "Name, size, industry, location",
     availability: "98%",
-    gradient: "from-neutral-500/10 to-stone-500/10",
-    iconBg: "bg-neutral-500/10",
-    iconColor: "text-neutral-700 dark:text-neutral-300"
+    gradient: "from-blue-100 to-blue-400",
+    iconBg: "bg-white",
+    iconColor: "text-blue-700 dark:text-blue-700"
   },
   {
     icon: GraduationCap,
     label: "Education",
     description: "Schools and degrees",
     availability: "85%",
-    gradient: "from-stone-500/10 to-gray-500/10",
-    iconBg: "bg-stone-500/10",
-    iconColor: "text-stone-700 dark:text-stone-300"
+    gradient: "from-blue-100 to-blue-400",
+    iconBg: "bg-white",
+    iconColor: "text-blue-700 dark:text-blue-700"
   },
   {
     icon: Award,
     label: "Skills",
     description: "Listed professional skills",
     availability: "80%",
-    gradient: "from-slate-600/10 to-zinc-500/10",
-    iconBg: "bg-slate-600/10",
-    iconColor: "text-slate-700 dark:text-slate-300"
+    gradient: "from-blue-100 to-blue-400",
+    iconBg: "bg-white",
+    iconColor: "text-blue-700 dark:text-blue-700"
   }
 ];
 
 export const LeadDetailsSection = () => {
   return (
     <section className="py-16 lg:py-20 relative overflow-hidden">
-      {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
-      
-      {/* Decorative blobs */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-foreground/5 rounded-full blur-3xl" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12">
@@ -87,10 +81,10 @@ export const LeadDetailsSection = () => {
               key={field.label}
               className="group relative overflow-hidden border-border hover:border-foreground/20 hover:shadow-xl transition-all duration-300"
             >
-              {/* Gradient overlay on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${field.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+              {/* Gradient background */}
+              <div className={`absolute inset-0 bg-gradient-to-b ${field.gradient} opacity-40`} />
               
-              <CardContent className="p-6 relative">
+              <CardContent className="p-4 relative">
                 <div className="flex items-start gap-4">
                   {/* Icon with glow effect */}
                   <div className="relative">

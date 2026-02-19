@@ -50,14 +50,14 @@ export const FAQSection = () => {
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-1 items-start max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
           {/* Image Side */}
-          <div className="order-2 lg:order-1 flex items-center justify-center">
-            <div className="relative w-full max-w-md">
+          <div className="order-2 lg:order-1 flex items-center justify-center hidden sm:flex">
+            <div className="relative w-full max-w-sm lg:max-w-md">
               {/* Glow effect behind image */}
               <div className="absolute inset-0 bg-foreground/5 rounded-full blur-3xl" />
               <Image
-                src="/Questions-pana.png"
+                src="/Questions-pana1.png"
                 alt="Frequently Asked Questions"
                 width={500}
                 height={500}

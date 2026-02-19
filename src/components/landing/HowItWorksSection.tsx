@@ -60,7 +60,7 @@ export const HowItWorksSection = () => {
               <div className="text-center">
                 <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full bg-card border-2 border-border mb-6">
                   <step.icon className="w-6 h-6 text-foreground" />
-                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[linear-gradient(to_bottom,#1a1aff,#000099)] text-primary-foreground text-xs font-bold flex items-center justify-center">
                     {step.step}
                   </span>
                 </div>

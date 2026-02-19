@@ -8,8 +8,8 @@ const useCases = [
     icon: Users,
     title: "Sales teams",
     description: "Build targeted prospect lists for outbound campaigns. Find decision-makers at companies that match your ideal customer profile.",
-    gradient: "from-gray-400/20 via-gray-300/20 to-transparent",
-    iconBg: "bg-black dark:bg-gray-700",
+    gradient: "from-blue-400/20 via-blue-300/20 to-transparent",
+    iconBg: "bg-[linear-gradient(to_bottom,#1a1aff,#000099)]",
     iconColor: "text-white dark:text-white",
     stats: "5K+ teams"
   },
@@ -17,8 +17,8 @@ const useCases = [
     icon: UserSearch,
     title: "Recruiters",
     description: "Source candidates with specific skills and experience. Search by job title, company, or use AI to find matching professionals.",
-    gradient: "from-gray-400/20 via-gray-300/20 to-transparent",
-    iconBg: "bg-black dark:bg-gray-700",
+    gradient: "from-blue-400/20 via-blue-300/20 to-transparent",
+    iconBg: "bg-[linear-gradient(to_bottom,#1a1aff,#000099)]",
     iconColor: "text-white dark:text-white",
     stats: "2K+ recruiters"
   },
@@ -26,8 +26,8 @@ const useCases = [
     icon: Lightbulb,
     title: "Founders",
     description: "Research potential customers, partners, or investors. Get contact information without paying for enterprise sales tools.",
-    gradient: "from-gray-400/20 via-gray-300/20 to-transparent",
-    iconBg: "bg-black dark:bg-gray-700",
+    gradient: "from-blue-400/20 via-blue-300/20 to-transparent",
+    iconBg: "bg-[linear-gradient(to_bottom,#1a1aff,#000099)] dark:bg-gray-700",
     iconColor: "text-white dark:text-white",
     stats: "3K+ startups"
   }
@@ -37,7 +37,7 @@ export const UseCasesSection = () => {
   return (
     <section id="use-cases" className="py-12 lg:py-16 relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-muted/50 via-muted/30 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-blue-10" />
       
       {/* Decorative elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-gray-400/5 rounded-full blur-3xl" />
@@ -93,7 +93,7 @@ export const UseCasesSection = () => {
                 
                 {/* Hover indicator */}
                 <div className="flex items-center justify-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-y-0 translate-y-2">
-                  <span className={useCase.iconColor}>Explore use case</span>
+                  <span className="text-neutral-800">Explore use case</span>
                   <ArrowRight className={`w-4 h-4 ${useCase.iconColor} group-hover:translate-x-1 transition-transform`} />
                 </div>
               </CardContent>
@@ -108,14 +108,14 @@ export const UseCasesSection = () => {
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card border border-border shadow-sm">
             <div className="flex -space-x-2">
-              <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-background flex items-center justify-center">
-                <Users className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+              <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-background flex items-center justify-center">
+                <Users className="w-4 h-4 text-blue-800" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-background flex items-center justify-center">
-                <UserSearch className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+              <div className="w-8 h-8 rounded-full bg-blue-100  border-2 border-background flex items-center justify-center">
+                <UserSearch className="w-4 h-4 text-blue-800" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 border-2 border-background flex items-center justify-center">
-                <Lightbulb className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+              <div className="w-8 h-8 rounded-full bg-blue-100  border-2 border-background flex items-center justify-center">
+                <Lightbulb className="w-4 h-4 text-blue-800 " />
               </div>
             </div>
             <span className="text-sm text-muted-foreground">

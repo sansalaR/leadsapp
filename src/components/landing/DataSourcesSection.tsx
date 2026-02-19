@@ -62,8 +62,8 @@ export const DataSourcesSection = () => {
               {sources.map((source) => (
                 <Card key={source.title} className="p-4">
                   <CardContent className="flex gap-3 p-0">
-                    <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
-                      <source.icon className="w-5 h-5 text-foreground" />
+                    <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                      <source.icon className="w-5 h-5 text-blue-700" />
                     </div>
 
                     <div>

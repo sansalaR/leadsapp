@@ -64,7 +64,7 @@ export const FeaturesSection = () => {
                 animationDelay: inView ? `${index * 0.1}s` : "0s",
               }}
             >
-              <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 <feature.icon className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
