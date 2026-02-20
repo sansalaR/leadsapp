@@ -1,35 +1,40 @@
 "use client";
-import { Search, Sparkles, Mail, Phone, Briefcase, FileDown } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 
-const features = [
+type Feature = {
+  title: string;
+  description: string;
+  video: string;
+};
+
+const features: Feature[] = [
   {
-    icon: Search,
+    video: "/search.mp4",
     title: "Smart Search",
     description: "Filter by company, job title, location, industry, or company size to find exactly who you need.",
   },
   {
-    icon: Sparkles,
+    video: "/star.mp4",
     title: "AI Lead Generation",
     description: "Describe your ideal customer and let AI generate a targeted list of prospects automatically.",
   },
   {
-    icon: Mail,
+    video: "/email.mp4",
     title: "Verified Emails",
     description: "Every email is verified in real-time with 95%+ deliverability guarantee.",
   },
   {
-    icon: Phone,
+    video: "/tel.mp4",
     title: "Direct Dial Numbers",
     description: "Access mobile and direct dial numbers to connect with decision-makers faster.",
   },
   {
-    icon: Briefcase,
+    video: "/case.mp4",
     title: "Rich Profiles",
     description: "View work history, education, skills, and social profiles for better personalization.",
   },
   {
-    icon: FileDown,
+    video: "/export.mp4",
     title: "CSV Export",
     description: "Export leads to CSV and import directly into Salesforce, HubSpot, or any CRM.",
   },
@@ -64,8 +69,8 @@ export const FeaturesSection = () => {
                 animationDelay: inView ? `${index * 0.1}s` : "0s",
               }}
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                <feature.icon className="w-5 h-5" />
+              <div className="mb-4">
+                <video src={feature.video} autoPlay loop muted className="w-12 h-12 rounded-lg" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">
                 {feature.title}

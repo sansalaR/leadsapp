@@ -8,7 +8,7 @@ import {
   Search,
   Download,
   Mail,
-  Phone,
+  Phone, Sparkles
 } from "lucide-react"
 
 export function LeadsTableSection() {
@@ -56,7 +56,18 @@ export function LeadsTableSection() {
   ]
 
   return (
-    <section className="pb-16 mt-9">
+    <section className="pb-16 mt-10">
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span className="text-xs font-medium text-primary">Trusted by industry leaders</span>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            Join <span className="text-foreground font-semibold">10,000+ sales teams</span> at leading companies who trust our platform to generate high-quality leads
+          </p>
+        </div>
+      </div>
        {/* Product UI Mockup */}
         <div className="max-w-5xl mx-auto">
           <div className="rounded-xl border border-border bg-card shadow-2xl shadow-primary/5 overflow-hidden">

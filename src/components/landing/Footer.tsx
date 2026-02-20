@@ -2,10 +2,21 @@
 import { Zap, Twitter, Linkedin, Github, Mail } from "lucide-react";
 
 const footerLinks = {
-  Product: ["Features", "Pricing", "API", "Integrations"],
-  Company: ["About", "Blog", "Careers", "Press"],
-  Resources: ["Documentation", "Help Center", "Status", "Security"],
-  Legal: ["Privacy", "Terms", "Cookies", "GDPR"],
+  Company: [
+    { label: "Features", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "About", href: "/about" }
+  ],
+  Resources: [
+    { label: "Documentation", href: "/documentation" },
+    { label: "Help Center", href: "/helpcenter" },
+    { label: "Security", href: "/security" }
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Contact", href: "/contact" }
+  ],
 };
 
 const socialLinks = [
@@ -48,22 +59,29 @@ export const Footer = () => {
             </div>
           </div>
           
+          {/* Spacer column */}
+          <div></div>
+          
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h3 className="font-bold text-foreground mb-4">{title}</h3>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a 
-                      href="#" 
-                      className="text-muted-foreground hover:text-accent transition-colors relative group"
-                    >
-                      {link}
-                      <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
-                    </a>
-                  </li>
-                ))}
+                {links.map((link) => {
+                  const linkLabel = typeof link === "string" ? link : link.label;
+                  const linkHref = typeof link === "string" ? "#" : link.href;
+                  return (
+                    <li key={linkLabel}>
+                      <a 
+                        href={linkHref} 
+                        className="text-muted-foreground hover:text-blue-800 transition-colors relative group"
+                      >
+                        {linkLabel}
+                        <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-300" />
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
