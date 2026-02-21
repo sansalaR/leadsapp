@@ -1,5 +1,5 @@
 'use client';
-import AnimatedDiv from '@/app/components/common/fade-in';
+import AnimatedDiv from '@/components/common/fade-in';
 
 export default ({ bg, title, subtitle, blur, previewComponent, index }: {
     bg?: string,

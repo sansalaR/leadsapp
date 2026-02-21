@@ -1,4 +1,4 @@
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 // public/assets/v2/feature/2/av2.png
