@@ -42,7 +42,7 @@ export const ExportSection = () => {
             {/* Content */}
             <div>
 
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+             <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-4">
                 Export leads in one click
               </h2>
 

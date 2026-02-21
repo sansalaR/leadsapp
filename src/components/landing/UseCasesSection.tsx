@@ -1,69 +1,79 @@
 "use client";
-import { Users, UserSearch, Lightbulb } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const useCases = [
   {
-    icon: Users,
     title: "Sales Teams",
-    description: "Build targeted prospect lists for outbound campaigns. Find decision-makers at companies that match your ideal customer profile.",
-    stats: "5K+ teams"
+    description: "Build targeted prospect lists for outbound campaigns. Find decision-makers at companies matching your ideal profile.",
+    image: "/assets/usecase1a.jpg",
+    stats: "5K+ teams",
+    bg: "bg-[#6B8A9C]", // Muted blue-grey
   },
   {
-    icon: UserSearch,
     title: "Recruiters",
     description: "Source candidates with specific skills and experience. Search by job title, company, or use AI to find matching professionals.",
-    stats: "2K+ recruiters"
+    image: "/assets/usecase2.jpg",
+    stats: "2K+ recruiters",
+    bg: "bg-[#E8E4D9]", // Warm beige
   },
   {
-    icon: Lightbulb,
     title: "Founders",
     description: "Research potential customers, partners, or investors. Get contact information without paying for enterprise sales tools.",
-    stats: "3K+ startups"
+    image: "/assets/usecase3b.jpg",
+    stats: "3K+ startups",
+    bg: "bg-[#EAEBE9]", // Light grey
   }
 ];
 
 export const UseCasesSection = () => {
   return (
-    <section id="use-cases" className="py-12 lg:py-16 bg-gradient-to-b from-blue-50 to-blue-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+    <section id="use-cases" className="py-16 lg:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-4">
             Who uses LeadFind
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            LeadFind helps anyone who needs to find and reach business professionals.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+           LeadFind helps anyone who needs to find and reach business professionals.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {useCases.map((useCase) => {
-            const IconComponent = useCase.icon;
-            return (
-              <div
-                key={useCase.title}
-                className="relative p-6 rounded-lg border border-border bg-card overflow-hidden"
-              >
-                <IconComponent className="absolute -right-3 -bottom-4 w-40 h-40 opacity-20 text-blue-500" />
-                
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-blue-900 text-white text-xs">
-                    {useCase.stats}
-                  </Badge>
-                </div>
-                
-                <div className="relative z-10">
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {useCase.title}
-                  </h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {useCases.map((useCase) => (
+            <div
+              key={useCase.title}
+              className={`relative rounded-2xl overflow-hidden h-[500px] group ${useCase.bg}`}
+            >
+              {/* Background Image */}
+              <Image
+                src={useCase.image}
+                alt={useCase.title}
+                fill
+                className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+              />
+              
+              {/* Overlay Gradient for better text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60" />
+
+              {/* Content Container */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-lg transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                  <div className="flex justify-between items-start mb-4 border-b border-gray-200 pb-4">
+                    <h3 className="text-2xl font-medium text-gray-900">
+                      {useCase.title}
+                    </h3>
+                    <span className="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      {useCase.stats}
+                    </span>
+                  </div>
                   
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     {useCase.description}
                   </p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
