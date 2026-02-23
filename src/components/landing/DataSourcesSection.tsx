@@ -73,7 +73,7 @@ const SocialMediaPlatforms = ({ active }: { active?: boolean }) => {
           active ? 'translate-x-[10%] rotate-[25deg] scale-105' : '',
           'group-hover:translate-x-[10%] group-hover:rotate-[25deg] group-hover:scale-105'
         )}>
-          <Image fill alt="" src={'/assets/c1a.jfif'} className="object-cover" />
+          <Image fill alt="" src={'/assets/c1b.jpg'} className="object-cover" />
         </div>
       </div>
     </div>
