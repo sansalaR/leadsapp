@@ -14,7 +14,7 @@ const sampleLeads = [
 
 export const AILeadGenSection = () => {
   return (
-    <section className="py-12 lg:py-16">
+    <section className="pb-12 lg:pb-16 pt-4 lg:pt-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mx-auto text-center mb-12">

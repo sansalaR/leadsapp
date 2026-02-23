@@ -1,135 +1,285 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Globe,
-  Users,
-  Building2,
-  Database,
-  CheckCircle,
-} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Building2, Database } from "lucide-react";
+import AnimatedDiv from "@/components/common/fade-in";
 
-const sources = [
-  {
-    icon: Globe,
-    title: "Public Web",
-    description: "Company websites and publicly available professional profiles.",
-  },
-  {
-    icon: Users,
-    title: "Professional Networks",
-    description: "Aggregated from business directories and professional platforms.",
-  },
-  {
-    icon: Building2,
-    title: "Business Registries",
-    description: "Official company registrations and corporate filings.",
-  },
-  {
-    icon: Database,
-    title: "Verified Partners",
-    description: "Third-party data providers with verified B2B contacts.",
-  },
-];
+// --- Previews ---
 
-const stats = [
-  { value: "95%+", label: "Email accuracy" },
-  { value: "90%+", label: "Phone accuracy" },
-  { value: "24h", label: "Data refresh" },
-];
+const PostPerMonth = ({ active }: { active?: boolean }) => {
+  return (
+    <div className="size-full flex flex-col items-center justify-center overflow-visible">
+      <div className="w-[40%] relative *:transition-all *:shadow-xl *:ease-in *:duration-400 *:rounded-md *:overflow-hidden">
+        <div className={cn(
+          'absolute w-full aspect-square bg-gray-200',
+          'rotate-[20deg]',
+          (active ? 'translate-y-[-35%] translate-x-[15%] rotate-[30deg]' : ''),
+          'group-hover:translate-y-[-35%] group-hover:translate-x-[15%] group-hover:rotate-[30deg]'
+        )}>
+          <Image fill alt="" src={'/assets/datanet.jpg'} className="object-cover" />
+        </div>
+        <div className={cn(
+          'absolute w-full aspect-square bg-gray-300',
+          'rotate-[-20deg]',
+          (active ? 'translate-y-[-35%] translate-x-[-15%] rotate-[-30deg]' : ''),
+          'group-hover:translate-y-[-35%] group-hover:translate-x-[-15%] group-hover:rotate-[-30deg]'
+        )}>
+          <Image fill alt="" src={'/assets/usecase3b.jpg'} className="object-cover" />
+        </div>
+        <div className={cn(
+          'absolute w-full aspect-square bg-gray-100',
+          (active ? 'translate-y-[-45%]' : 'translate-y-[30%]'),
+          'group-hover:translate-y-[-45%]'
+        )}>
+          <Image fill alt="" src={'/assets/card2.jpg'} className="object-cover" />
+        </div>
+        <div className={cn(
+          'absolute w-full aspect-square bg-gray-200',
+          'rotate-[20deg]',
+          (active ? 'translate-y-[-10%] translate-x-0 rotate-[23deg]' : 'translate-y-[-25%] translate-x-[10%]'),
+          'group-hover:translate-y-[-10%] group-hover:translate-x-0 group-hover:rotate-[23deg]'
+        )}>
+          <Image fill alt="" src={'/assets/card2a.jpg'} className="object-cover" />
+        </div>
+        <div className={cn(
+          'absolute w-full aspect-square bg-white',
+          'rotate-[-20deg]',
+          (active ? 'translate-y-[-10%] translate-x-0 rotate-[-23deg]' : 'translate-y-[-25%] translate-x-[-10%]'),
+          'group-hover:translate-y-[-10%] group-hover:translate-x-0 group-hover:rotate-[-23deg]'
+        )}>
+          <Image fill alt="" src={'/assets/card1a.jpg'} className="object-cover" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SocialMediaPlatforms = ({ active }: { active?: boolean }) => {
+  return (
+    <div className="size-full flex flex-col items-center justify-center overflow-visible">
+      <div className="w-full items-center -space-x-10 justify-center flex flex-row relative *:transition-all *:shadow *:ease-in *:duration-400 *:overflow-hidden">
+        <div className={cn(
+          'w-[35%] min-w-[6rem] aspect-square relative rounded-full bg-gray-200',
+          'translate-y-[10%] rotate-[-20deg]',
+          active ? 'translate-x-[-10%] rotate-[-25deg] scale-105' : '',
+          'group-hover:translate-x-[-10%] group-hover:rotate-[-25deg] group-hover:scale-105'
+        )}>
+           <Image fill alt="" src={'/assets/c2.jpg'} className="object-cover" />
+        </div>
+        <div className={cn(
+          'w-[35%] min-w-[6rem] aspect-square relative rounded-full bg-gray-300',
+          'translate-y-[10%] rotate-[20deg]',
+          active ? 'translate-x-[10%] rotate-[25deg] scale-105' : '',
+          'group-hover:translate-x-[10%] group-hover:rotate-[25deg] group-hover:scale-105'
+        )}>
+          <Image fill alt="" src={'/assets/c1a.jfif'} className="object-cover" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Insights = ({ active }: { active?: boolean }) => {
+  return (
+     <div className="size-full flex flex-col items-center justify-end">
+      <div className="w-full items-end justify-center flex flex-row relative *:transition-all *:ease-in *:duration-400 *:overflow-hidden">
+         <div className={cn(
+          "absolute w-[80px] h-[80px]",
+          "top-0 translate-y-[-20%] translate-x-[-60%] rotate-[-20deg]",
+          active ? 'rotate-[-25deg] translate-y-[-40%] translate-x-[-75%] scale-110' : '',
+          'group-hover:rotate-[-25deg] group-hover:translate-y-[-40%] group-hover:translate-x-[-75%] group-hover:scale-110'
+        )}>
+           <Image fill alt="" src={'/assets/c3.png'} className="object-contain" />
+        </div>  
+        <div className={cn(
+          "absolute w-[55px] h-[55px]",
+          "bottom-0 translate-y-[20%] translate-x-[120%] rotate-[20deg]",
+          active ? 'rotate-[25deg] translate-y-[0%] translate-x-[130%] scale-110' : '',
+          'group-hover:rotate-[25deg] group-hover:translate-y-[0%] group-hover:translate-x-[130%] group-hover:scale-110'
+        )}>
+           <Image fill alt="" src={'/assets/c4.png'} className="object-contain" />
+        </div>  
+        <div className={cn(
+          'size-20 bg-[#292D32] p-2.5 flex items-center justify-center rounded-t-xl z-[1]',
+          active ? 'translate-y-[-20%] rounded-xl scale-110' : 'translate-y-[25%]',
+          'group-hover:translate-y-[-20%] group-hover:rounded-xl group-hover:scale-110'
+        )}>
+          <Building2 className={cn(
+            'text-white size-full transition-all ease-in',
+            active ? 'translate-y-0' : 'translate-y-[15%]',
+            'group-hover:translate-y-0'
+          )}/>
+        </div>
+      </div>
+    </div>      
+  );
+};
+
+const BusinessRegistriesPreview = ({ active }: { active?: boolean }) => {
+  return (
+    <div className="size-full flex flex-col items-center justify-center overflow-visible">
+      <div className="w-full items-center justify-center flex relative *:transition-all *:ease-in-out *:duration-500 translate-y-[40%]">
+        <div className={cn(
+          "absolute bg-slate-100 rounded-lg w-[80px] h-[105px] flex items-center justify-center z-10 overflow-hidden",
+          active ? "translate-y-[-15px] shadow-xl" : "",
+          "group-hover:translate-y-[-15px] group-hover:shadow-xl"
+        )}>
+          <Image fill alt="" src={'/assets/c52.jpg'} className="object-cover" />
+        </div>
+        {/* Papers sliding out */}
+        <div className={cn(
+          "absolute bg-white border border-slate-200 rounded-lg w-[70px] h-[90px] z-0 overflow-hidden",
+          active ? "translate-x-[-55px] translate-y-[15px] rotate-[-10deg]" : "",
+          "group-hover:translate-x-[-55px] group-hover:translate-y-[15px] group-hover:rotate-[-10deg]"
+        )}>
+          <Image fill alt="" src={'/assets/c11.png'} className="object-cover" />
+        </div>
+        <div className={cn(
+          "absolute bg-white border border-slate-200 rounded-lg w-[70px] h-[90px] z-0 overflow-hidden",
+          active ? "translate-x-[55px] translate-y-[15px] rotate-[10deg]" : "",
+          "group-hover:translate-x-[55px] group-hover:translate-y-[15px] group-hover:rotate-[10deg]"
+        )}>
+          <Image fill alt="" src={'/assets/c12.jpg'} className="object-cover" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const VerifiedPartnersPreview = ({ active }: { active?: boolean }) => {
+  return (
+    <div className="size-full flex flex-col items-center justify-center overflow-visible">
+      <div className="w-full items-center justify-center flex flex-col relative *:transition-all *:ease-in-out *:duration-500">
+        <div className={cn(
+          "bg-emerald-100 rounded-t-lg w-[75px] h-[30px] mb-1",
+          active ? "translate-y-[-15px] bg-emerald-400" : "",
+          "group-hover:translate-y-[-15px] group-hover:bg-emerald-400"
+        )} />
+        <div className={cn(
+          "bg-emerald-200 rounded-sm w-[75px] h-[30px] mb-1 flex items-center justify-center z-10",
+          active ? "scale-110 bg-emerald-500 shadow-lg shadow-emerald-500/30" : "",
+          "group-hover:scale-110 group-hover:bg-emerald-500 group-hover:shadow-lg group-hover:shadow-emerald-500/30"
+        )}>
+          <Database className={cn("w-6 h-6 transition-colors duration-500", active ? "text-white" : "text-emerald-700", "group-hover:text-white")}/>
+        </div>
+        <div className={cn(
+          "bg-emerald-100 rounded-b-lg w-[75px] h-[30px]",
+          active ? "translate-y-[15px] bg-emerald-400" : "",
+          "group-hover:translate-y-[15px] group-hover:bg-emerald-400"
+        )} />
+      </div>
+    </div>
+  );
+};
+
+import React, { useState } from "react";
+
+const Card = ({ no, prefix, title, previewComponent, index }: {
+  no: number | string,
+  prefix?: string,
+  title: string,
+  previewComponent?: React.ReactNode,
+  index: number
+}) => {
+  const [active, setActive] = useState(false);
+
+  // Detect touch/click for mobile, toggle active state
+  const handleCardClick = () => {
+    setActive((prev) => !prev);
+  };
+
+  // Remove active state on blur (optional, for accessibility)
+  const handleBlur = () => {
+    setActive(false);
+  };
+
+  return (
+    <AnimatedDiv
+      delay={(index + 1) * 0.15}
+      className={
+        `w-[80%] md:w-full max-w-[280px] group flex flex-col items-center justify-between ${active ? "active" : ""}`
+      }
+      tabIndex={0}
+      onClick={handleCardClick}
+      onBlur={handleBlur}
+      role="button"
+      aria-pressed={active}
+      style={{ outline: "none" }}
+    >
+      <div className="pt-2.5">
+        <p className="tracking-[-4%] text-gray-900 font-medium text-4xl md:text-5xl">{no}{prefix}</p>
+      </div>
+      <div className="flex-1 flex items-center justify-center w-full border-b border-gray-200 overflow-y-hidden pt-6 pb-4">
+        <div className="h-[100px] w-full flex items-center justify-center overflow-visible">
+          {/* Pass active state as prop for animation control */}
+          {React.isValidElement(previewComponent)
+            ? React.cloneElement(previewComponent as React.ReactElement<any>, { active })
+            : previewComponent}
+        </div>
+      </div>
+      <div className="p-4 text-center">
+        <p className="text-center whitespace-pre-wrap text-gray-600 font-medium text-base">{title}</p>
+      </div>
+    </AnimatedDiv>
+  );
+};
+
+// --- Main Section ---
 
 export const DataSourcesSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Text & Source Cards */}
-          <div>
-            <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-6">
-              Where does the data come from?
-            </h2>
-            <p className="text-lg text-gray-600 mb-10 leading-relaxed">
-              We aggregate contact information from multiple trusted sources and verify
-              each data point in real-time to ensure maximum accuracy.
-            </p>
+  <section className="py-16 lg:py-24 bg-white">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl space-y-16">
+    <div className="text-center flex flex-col items-center">
+      <AnimatedDiv>
+      <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-4">
+        Where does the data come from?
+      </h2>
+      </AnimatedDiv>
+      <AnimatedDiv delay={0.1}>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        We aggregate contact information from multiple trusted sources and verify
+        each data point in real-time to ensure maximum accuracy.
+      </p>
+      </AnimatedDiv>
+    </div>
 
-            <div className="space-y-2">
-              {sources.map((source) => (
-                <div 
-                  key={source.title} 
-                  className="group relative flex items-start gap-4 p-4 rounded-2xl hover:bg-white hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-500 border border-transparent hover:border-gray-100"
-                >
-                  {/* Animated left accent */}
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-blue-500 rounded-r-full transition-all duration-500 group-hover:h-3/4 opacity-0 group-hover:opacity-100" />
+    <div className="flex flex-col items-center justify-center md:grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6 lg:gap-10 place-items-center mb-16 max-w-3xl mx-auto">
+      <Card 
+        index={0} 
+        no="350M" 
+        prefix="+" 
+        previewComponent={<PostPerMonth />}
+        title={`Public & Professional\nData Sources`} 
+      />
+      <Card 
+        index={1} 
+        no="50" 
+        prefix="+" 
+        previewComponent={<SocialMediaPlatforms />} 
+        title={`Professional Networks,\nBusiness Platforms & Directories`} 
+      />
+    </div>
 
-                  <div className="relative flex-shrink-0 w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:border-blue-500 group-hover:bg-blue-50 group-hover:scale-110 transition-all duration-500">
-                    <source.icon className="w-5 h-5 text-blue-600 group-hover:text-blue-700 transition-colors duration-500" />
-                  </div>
-                  
-                  <div className="flex-1 pt-0.5">
-                    <h3 className="text-lg font-medium text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300">
-                      {source.title}
-                    </h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      {source.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Column: Image & Stats Overlay */}
-          <div className="relative rounded-3xl overflow-hidden h-[500px] lg:h-[600px] shadow-2xl group">
-            <Image 
-              src="/assets/datanet.jpg" 
-              alt="Data Network" 
-              fill 
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            {/* Dark gradient overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent" />
-            
-            <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
-              {/* Glassmorphism Stats Card */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 text-white transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
-                <h3 className="text-xl sm:text-2xl font-semibold mb-6 flex items-center gap-3">
-                  <CheckCircle className="w-6 h-6 text-blue-400" />
-                  Data quality you can trust
-                </h3>
-                
-                <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-white/20">
-                  {stats.map((stat) => (
-                    <div key={stat.label} className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-xs sm:text-sm text-gray-300">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="space-y-3">
-                  {[
-                    "GDPR & CCPA Compliant",
-                    "SOC 2 Type II Certified",
-                    "Real-time email verification",
-                  ].map((item) => (
-                    <div key={item} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
-                      <span className="text-sm sm:text-base text-gray-200">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
+    <div className="flex flex-col items-center justify-center md:grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-6 lg:gap-10 place-items-center max-w-3xl mx-auto">
+      <Card 
+        index={2} 
+        no="95%" 
+        prefix="+" 
+        previewComponent={<Insights />}
+        title={`Business Registries &\nOfficial Company Filings`} 
+      />
+      <Card 
+        index={3} 
+        no="24h" 
+        prefix="" 
+        previewComponent={<BusinessRegistriesPreview />}
+        title={`Data Providers with\nVerified B2B Contacts`} 
+      />
+    </div>
+    </div>
+  </section>
   );
 };
+

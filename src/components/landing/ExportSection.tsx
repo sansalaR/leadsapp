@@ -26,11 +26,13 @@ const csvData = [
   { name: "Lisa Anderson", company: "Nexus AI", email: "l.anderson@nexusai.com", phone: "+1 (617) 555-0191", skills: "Sales Strategy, Team Lead" },
 ];
 
-const benefits = [
-  "50 free exports daily",
-  "Excel & CSV formats",
-  "All contact data included",
-  "CRM-ready format",
+const exportFields = [
+  { label: "Email address", description: "Work email, verified monthly" },
+  { label: "Phone number", description: "Direct line when available" },
+  { label: "Work history", description: "Current and past positions" },
+  { label: "Company details", description: "Name, size, industry, location" },
+  { label: "Education", description: "Schools and degrees" },
+  { label: "Skills", description: "Listed professional skills" },
 ];
 
 export const ExportSection = () => {
@@ -51,14 +53,17 @@ export const ExportSection = () => {
                 All contact data included — no hidden fields or extra charges.
               </p>
 
-              <ul className="space-y-3 mb-8">
-                {benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-foreground">{benefit}</span>
-                  </li>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                {exportFields.map((field) => (
+                  <div key={field.label} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-medium text-foreground text-sm">{field.label}</div>
+                      <div className="text-xs text-muted-foreground">{field.description}</div>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
               <Button size="lg" className="gap-2">
                 <Download className="w-4 h-4" />

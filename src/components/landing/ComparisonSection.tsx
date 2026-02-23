@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 export const ComparisonSection = () => {
   return (
-    <section id="features" className="py-12 lg:py-16">
+    <section id="features" className="pb-12 lg:pb-16 pt-4 lg:pt-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
