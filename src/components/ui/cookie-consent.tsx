@@ -27,44 +27,48 @@ export function CookieConsent() {
   if (!showConsent) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 pointer-events-none">
-      <div className="max-w-4xl mx-auto bg-white border border-gray-200 shadow-2xl rounded-2xl p-6 pointer-events-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative overflow-hidden">
-        {/* Decorative background element */}
-        <div className="absolute top-0 left-0 w-2 h-full bg-blue-500"></div>
-        
-        <div className="flex items-start gap-4">
-          <div className="bg-blue-50 p-3 rounded-full shrink-0">
-            <Cookie className="w-6 h-6 text-blue-600" />
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 p-4 sm:p-6">
+      <div className="pointer-events-auto relative mx-auto flex max-w-4xl flex-col items-start justify-between gap-4 overflow-hidden rounded-2xl bg-white p-6 shadow-lg shadow-black/10 ring-1 ring-black/10 sm:flex-row sm:items-center">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -left-20 -top-20 h-56 w-56 rounded-full bg-yellow-500/15 blur-3xl" />
+          <div className="absolute -right-20 -top-24 h-56 w-56 rounded-full bg-blue-500/10 blur-3xl" />
+          <div className="absolute -bottom-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
+        </div>
+
+        <div className="relative flex items-start gap-4">
+          <div className="shrink-0 rounded-full bg-black/5 p-3 ring-1 ring-black/10">
+            <Cookie className="h-6 w-6 text-black/70" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">We value your privacy</h3>
-            <p className="text-sm text-gray-600 leading-relaxed max-w-2xl">
+            <h3 className="text-base font-semibold text-black sm:text-lg">We value your privacy</h3>
+            <p className="mt-1 max-w-2xl text-sm leading-relaxed text-black/60">
               We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
             </p>
           </div>
         </div>
-        
-        <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto mt-2 sm:mt-0">
+
+        <div className="relative mt-1 flex w-full items-center gap-3 sm:mt-0 sm:w-auto">
           <button
             onClick={declineCookies}
-            className="flex-1 sm:flex-none px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            className="h-11 flex-1 rounded-full border border-black/10 bg-white px-5 text-sm font-semibold text-black/80 transition-colors hover:bg-black/5 sm:flex-none"
           >
             Decline
           </button>
           <button
             onClick={acceptCookies}
-            className="flex-1 sm:flex-none px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+            className="h-11 flex-1 rounded-full bg-lime-400 px-5 text-sm font-semibold text-black transition-colors hover:bg-lime-300 sm:flex-none"
           >
             Accept All
           </button>
         </div>
-        
-        <button 
+
+        <button
           onClick={declineCookies}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors sm:hidden"
+          className="absolute right-4 top-4 rounded-full p-2 text-black/40 transition-colors hover:bg-black/5 hover:text-black/70 sm:hidden"
           aria-label="Close"
+          type="button"
         >
-          <X className="w-5 h-5" />
+          <X className="h-5 w-5" />
         </button>
       </div>
     </div>
