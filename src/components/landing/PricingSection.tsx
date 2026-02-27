@@ -1,7 +1,9 @@
-import { Zap, Star } from "lucide-react";
+"use client";
+
+import AnimatedDiv from "@/components/common/fade-in";
+import { Star, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 
 const plans = [
   {
@@ -52,86 +54,138 @@ const plans = [
 
 export const PricingSection = () => {
   return (
-    <section id="pricing" className="relative py-12 overflow-hidden bg-muted/30">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[700px] rounded-full bg-blue-400 opacity-[0.06] blur-3xl" />
+    <section id="pricing" className="relative overflow-hidden bg-white pt-14 pb-16 lg:pt-20 lg:pb-24">
+      <div className="pointer-events-none absolute inset-0">
+        <img
+          src="/assets/yellow-gradient.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute -left-64 top-6 w-200 max-w-none select-none opacity-80 blur-[2px]"
+          draggable={false}
+        />
+        <img
+          src="/assets/Blue%20Gradient%20Image%20(2).png"
+          alt=""
+          aria-hidden="true"
+          className="absolute -left-54 top-56 w-200 max-w-none select-none opacity-70 blur-[2px]"
+          draggable={false}
+        />
+        <img
+          src="/assets/Green%20Gradient%20Image%20(1).png"
+          alt=""
+          aria-hidden="true"
+          className="absolute -right-64 top-6 w-200 max-w-none select-none opacity-65 blur-[2px]"
+          draggable={false}
+        />
+      </div>
 
-      <div className="container relative mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-12">
-           <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-4">
-            Simple, transparent pricing
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that fits your needs. Upgrade or downgrade anytime.
-          </p>
+      <div className="container relative mx-auto px-6 max-w-6xl">
+        <div className="mx-auto max-w-3xl text-center relative">
+          <img
+            src="/assets/3-line.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-1 -top-15 hidden w-44 -translate-x-1/2 select-none md:block"
+            draggable={false}
+          />
+          <AnimatedDiv>
+            <h2 className="text-balance font-sans text-5xl font-semibold leading-[1.05] tracking-[-0.02em] text-black sm:text-6xl">
+              Simple, transparent <span className="font-serif italic">pricing</span>
+            </h2>
+          </AnimatedDiv>
+          <AnimatedDiv delay={0.1}>
+            <p className="mt-6 text-base leading-relaxed text-black/70 sm:text-lg max-w-2xl mx-auto">
+              Choose the plan that fits your needs. Upgrade or downgrade anytime.
+            </p>
+          </AnimatedDiv>
         </div>
 
-        {/* Cards grid */}
-        <div className="mx-auto grid max-w-4xl gap-5 md:grid-cols-3 items-stretch">
-          {plans.map((plan) => (
-            <Card
-              key={plan.name}
-              className={`relative overflow-visible rounded-xl transition-all duration-300 ${
-                plan.popular
-                  ? "border-2 border-blue-600 shadow-lg shadow-blue-100 z-10"
-                  : "border border-border bg-card shadow-sm"
-              }`}
-            >
-              {/* Most Popular badge */}
-              {plan.popular && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20">
-                  <Badge className="flex items-center gap-1 rounded-full bg-gradient-to-r from-blue-800 to-blue-700 px-3 py-0.5 text-xs font-semibold text-white shadow-sm">
-                    <Star className="h-2.5 w-2.5 fill-white" />
-                    Most Popular
-                  </Badge>
-                </div>
-              )}
-
-              <CardContent className={`p-6 flex flex-col h-full ${plan.popular ? "pt-8" : "pt-6"}`}>
-                {/* Plan name */}
-                <h3 className="text-lg font-bold text-foreground text-center">{plan.name}</h3>
-
-                {/* Price */}
-                <div className="mt-2 flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
-                  <span className="text-muted-foreground text-sm">per month</span>
-                </div>
-
-                {/* Description */}
-                <p className="mt-1.5 text-xs text-muted-foreground text-center leading-relaxed">
-                  {plan.description}
-                </p>
-
-                {/* Features */}
-                <ul className="mt-5 space-y-2.5 flex-1">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2.5 text-sm text-foreground">
-                      <Zap className="h-3.5 w-3.5 shrink-0 text-blue-500 fill-blue-100" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <div className="mt-6">
-                  {plan.currentPlan ? (
-                    <p className="text-center text-sm text-muted-foreground font-medium">
-                      Current Plan
-                    </p>
-                  ) : (
-                    <Button
-                      variant={plan.popular ? "default" : "outline"}
-                      className={`w-full h-10 text-sm font-semibold rounded-lg ${
-                        plan.popular ? "bg-blue-600 hover:bg-blue-700 text-white shadow-md" : ""
-                      }`}
-                    >
-                      Select Plan
-                    </Button>
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-3 items-stretch">
+          {plans.map((plan, index) => {
+            const isPopular = plan.popular;
+            return (
+              <AnimatedDiv key={plan.name} delay={0.12 * (index + 1)} className="h-full">
+                <div
+                  className={
+                    "group relative h-full overflow-hidden rounded-2xl ring-1 transition-all duration-300 hover:-translate-y-0.5 " +
+                    (isPopular
+                      ? "bg-neutral-950 text-white ring-white/10 shadow-lg shadow-black/10"
+                      : "bg-white text-gray-900 ring-black/5 shadow-sm")
+                  }
+                >
+                  {isPopular && (
+                    <div className="absolute left-1/2 top-4 -translate-x-1/2">
+                      <Badge className="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-white/15">
+                        <Star className="h-3 w-3 fill-white" />
+                        Most Popular
+                      </Badge>
+                    </div>
                   )}
+
+                  <div className={"p-7 flex h-full flex-col " + (isPopular ? "pt-14" : "")}> 
+                    <h3 className={"text-lg font-semibold text-center " + (isPopular ? "text-white" : "text-gray-900")}>
+                      {plan.name}
+                    </h3>
+
+                    <div className="mt-3 flex items-baseline justify-center gap-2">
+                      <span className={"text-4xl font-semibold tracking-tight " + (isPopular ? "text-white" : "text-gray-900")}>
+                        {plan.price}
+                      </span>
+                      <span className={isPopular ? "text-white/60 text-sm" : "text-gray-500 text-sm"}>
+                        per month
+                      </span>
+                    </div>
+
+                    <p className={"mt-3 text-sm text-center leading-relaxed " + (isPopular ? "text-white/70" : "text-gray-600")}>
+                      {plan.description}
+                    </p>
+
+                    <div className={"mt-6 h-px w-full " + (isPopular ? "bg-white/10" : "bg-black/5")} />
+
+                    <ul className="mt-6 space-y-3 flex-1">
+                      {plan.features.map((feature) => (
+                        <li
+                          key={feature}
+                          className={
+                            "flex items-start gap-3 text-sm " +
+                            (isPopular ? "text-white/80" : "text-gray-700")
+                          }
+                        >
+                          <Zap
+                            className={
+                              "mt-0.5 h-4 w-4 shrink-0 " +
+                              (isPopular ? "text-lime-300" : "text-emerald-600")
+                            }
+                          />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-8">
+                      {plan.currentPlan ? (
+                        <p className={"text-center text-sm font-medium " + (isPopular ? "text-white/70" : "text-gray-500")}>
+                          Current Plan
+                        </p>
+                      ) : (
+                        <Button
+                          variant={isPopular ? "default" : "outline"}
+                          className={
+                            "w-full h-11 rounded-xl text-sm font-semibold " +
+                            (isPopular
+                              ? "bg-lime-400 text-black hover:bg-lime-300"
+                              : "")
+                          }
+                        >
+                          Select Plan
+                        </Button>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              </AnimatedDiv>
+            );
+          })}
         </div>
       </div>
     </section>

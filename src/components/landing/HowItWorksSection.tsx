@@ -1,149 +1,162 @@
 "use client";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import AnimatedDiv from "../common/fade-in";
-import { Plus_Jakarta_Sans } from "next/font/google";
 
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
+import { useMemo, useState } from "react";
 
-const steps = [
-  {
-    step: "1",
-    title: "Search or describe",
-    description: "Use filters to search manually, or describe your ideal customer and let AI find matches.",
-    image: "/assets/step-search3.png",
-    bgColor: "#cffafe", // indigo-100
-  },
-  {
-    step: "2", 
-    title: "We aggregate data",
-    description: "Our system pulls from public sources, professional networks, and verified databases.",
-    image: "/assets/step-ag.jpg",
-    bgColor: "#dbeafe", // blue-100
-  },
-  {
-    step: "3",
-    title: "Real-time verification",
-    description: "Every email and phone number is verified before you see it. No bounces, no wasted time.",
-    image: "/assets/step-verify.jpg",
-    bgColor: "#e0f2fe", // sky-100
-  },
-  {
-    step: "4",
-    title: "Export & outreach",
-    description: "Download as CSV or sync directly to your CRM. Start your outreach in minutes.",
-    image: "/assets/step-export.jpg",
-    bgColor: "#e0e7ff", // light-blue/cyan-100
-  },
-];
+type Step = {
+	number: string;
+	title: string;
+	description: string;
+};
 
 export const HowItWorksSection = () => {
-  const titleRef = useRef<HTMLDivElement>(null);
-  const lastCardRef = useRef<HTMLLIElement>(null);
+	const steps = useMemo<Step[]>(
+		() => [
+			{
+				number: "01.",
+				title: "Search or describe",
+				description: "Use filters to search manually, or describe your ideal customer and let AI find matches.",
+			},
+			{
+				number: "02.",
+				title: "We aggregate data",
+				description: "Our system pulls from public sources, professional networks, and verified databases.",
+			},
+			{
+				number: "03.",
+				title: "Real-time verification",
+				description: "Every email and phone number is verified before you see it. No bounces, no wasted time.",
+			},
+			{
+				number: "04.",
+				title: "Export & outreach",
+				description: "Download as CSV or sync directly to your CRM. Start your outreach in minutes.",
+			},
+		],
+		[]
+	);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!titleRef.current || !lastCardRef.current) return;
+	const [activeIndex, setActiveIndex] = useState(0);
 
-      const titleRect = titleRef.current.getBoundingClientRect();
-      const lastCardRect = lastCardRef.current.getBoundingClientRect();
-      
-      // Start fading much earlier to prevent overlap
-      const buffer = 150; 
-      const triggerPoint = titleRect.bottom + buffer;
-      
-      if (lastCardRect.top <= triggerPoint) {
-        // Calculate progress of the overlap (0 to 1)
-        const overlapDistance = triggerPoint - lastCardRect.top;
-        const maxOverlap = titleRect.height + buffer;
-        const progress = Math.min(overlapDistance / maxOverlap, 1);
-        
-        // Apply smooth transforms based on progress - fade faster
-        titleRef.current.style.transform = `translateY(-${progress * 100}%)`;
-        titleRef.current.style.opacity = `${Math.max(1 - progress * 1.5, 0)}`;
-      } else {
-        titleRef.current.style.transform = 'translateY(0)';
-        titleRef.current.style.opacity = '1';
-      }
-    };
+	return (
+		<section id="how-it-works" className="relative overflow-hidden bg-black py-20 sm:py-24">
+			{/* Left green glow */}
+			<img
+				src="/assets/Green%20Gradient%20Image%20(1).png"
+				alt=""
+				aria-hidden="true"
+				className="pointer-events-none absolute -left-50 top-60 w-160 max-w-none select-none opacity-60 blur-[10px]"
+				draggable={false}
+			/>
 
-    window.addEventListener('scroll', handleScroll);
-    // Initial check
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+			{/* Blue glow beside green */}
+			<img
+				src="/assets/Blue%20Gradient%20Image%20(2).png"
+				alt=""
+				aria-hidden="true"
+				className="pointer-events-none absolute -left-80 top-24 w-150 max-w-none select-none opacity-55 blur-md"
+				draggable={false}
+			/>
 
-  return (
-    <section
-      id="how-it-works"
-      className={`w-full px-6 pt-20 pb-10 relative z-0 min-h-screen flex flex-col items-center justify-start bg-white ${jakarta.className}`}
-    >
-      {/* Sticky Title */}
-      <div 
-        ref={titleRef}
-        className="w-full sticky top-[10vh] z-30 bg-white pb-6 pt-4 transition-all duration-100 ease-out"
-      >
-        <AnimatedDiv>
-          <div className="max-w-3xl text-center mx-auto">
-            <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-6">
-              How LeadFlow Works?
-            </h2>
-            <p className="text-base text-slate-600">
-              From search to outreach in four simple steps.
-            </p>
-          </div>
-        </AnimatedDiv>
-      </div>
+			{/* Left doodles */}
+			<img
+				src="/assets/doodle.svg"
+				alt=""
+				aria-hidden="true"
+				className="pointer-events-none absolute left-48 top-[62%] hidden w-40 -translate-y-1/2 select-none opacity-90 invert md:block"
+				draggable={false}
+			/>
+			<img
+				src="/assets/Burst-pucker-1.svg"
+				alt=""
+				aria-hidden="true"
+				className="pointer-events-none absolute left-20 bottom-24 hidden w-19 select-none invert md:block"
+				draggable={false}
+			/>
 
-      {/* Cards Section */}
-      <ul className="list-none grid grid-cols-1 w-full max-w-3xl md:max-w-4xl gap-16 mt-4">
-        {steps.map((step, idx) => (
-          <li 
-            key={idx} 
-            ref={idx === steps.length - 1 ? lastCardRef : null}
-            className="sticky top-[12rem] z-10"
-          >
-            <div
-              className="relative h-auto md:h-[28rem] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 pl-6 md:pl-10 pt-6 md:pt-10 pr-6 md:pr-10 pb-6 md:pb-10 flex flex-col md:flex-row items-center justify-between overflow-hidden transition-all"
-            >
-              {/* Large Background Number */}
-              <div className="absolute md:top-[-3rem] top-[-1rem] md:left-[-1.5rem] left-[-1rem] md:text-[12rem] text-[5rem] font-bold select-none pointer-events-none">
-                <p style={{ color: step.bgColor, opacity: 0.8 }}>0{step.step}</p>
-              </div>
-              
-              {/* Text Content */}
-              <div className="md:w-5/12 w-full text-center md:text-left space-y-3 pr-6 md:pr-6 relative z-10 mt-10 md:mt-0">
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900">{step.title}</h3>
-                <p className="text-sm md:text-base text-slate-600 leading-relaxed">{step.description}</p>
-              </div>
-              
-              {/* Image Content */}
-              <div className="md:w-7/12 w-full mt-8 md:mt-0 flex justify-end relative z-10 h-full">
-                <div 
-                  className="w-full h-full pt-6 pl-6 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl rounded-br-xl flex items-end justify-end overflow-hidden" 
-                  style={{ backgroundColor: step.bgColor }}
-                >
-                  <div className="w-full h-full relative rounded-tl-xl overflow-hidden shadow-sm border-t border-l border-white/50 bg-white flex items-center justify-center min-h-[200px] translate-x-2 translate-y-2 md:translate-x-4 md:translate-y-4">
-                    <Image 
-                      src={step.image} 
-                      alt={step.title} 
-                      className="w-full h-full object-cover"
-                      width={800} 
-                      height={500} 
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+			<div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="mx-auto max-w-6xl">
+					<div className="max-w-4xl">
+						<h2 className="text-balance font-sans text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+							<span className="font-serif text-white/60 italic">How it works?</span> From search to outreach in four 
+							<br />
+							simple steps.
+						</h2>
+					</div>
 
-      {/* Optional space after last card */}
-      <div className="h-[9vh]" />
-    </section>
-  );
+					{/* Step rail (right-aligned on desktop) */}
+					<div className="mt-14 md:ml-auto md:max-w-4xl">
+						<div className="flex flex-col gap-6 md:flex-row md:items-stretch md:justify-end md:gap-8">
+							{steps.map((step, index) => {
+								const isActive = index === activeIndex;
+								return (
+									<button
+										key={step.number}
+										type="button"
+										onClick={() => setActiveIndex(index)}
+										aria-pressed={isActive}
+										className={
+											"group relative overflow-hidden rounded-xl bg-white/5 text-left ring-1 ring-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 " +
+											"md:h-105 " +
+											"transition-[width,transform,background-color,box-shadow] duration-500 ease-in-out " +
+											(isActive
+												? "p-10 shadow-[0_24px_60px_rgba(0,0,0,0.55)] md:w-92"
+												: "p-8 md:w-24 md:px-6 md:py-10")
+										}
+									>
+										{/* KEY FIX: relative div must be h-full on desktop so children can fill it */}
+										<div className="relative md:h-full">
+
+											{/* Compact layout */}
+											{!isActive && (
+												<>
+													{/* Mobile */}
+													<div className="flex flex-row items-start justify-between gap-6 md:hidden">
+														<div className="font-bayside text-3xl font-semibold text-white">{step.number}</div>
+														<div className="text-lg font-medium text-white/80">{step.title}</div>
+													</div>
+
+													{/* Desktop: number pinned top-left, title centered in card */}
+													<div className="hidden md:block md:h-full">
+														{/* Number always top-left */}
+														<div className="font-bayside text-3xl font-semibold text-white">
+															{step.number}
+														</div>
+														{/* Title centered in the remaining vertical space */}
+														<div
+                                style={{ top: "4.5rem" }}
+                                className="absolute left-0 right-0 flex justify-center"
+                            >
+															<div className="text-lg font-medium text-white/80 [writing-mode:vertical-rl] [text-orientation:mixed]">
+																{step.title}
+															</div>
+														</div>
+													</div>
+												</>
+											)}
+
+											{/* Expanded layout */}
+											{isActive && (
+												<div>
+													<div className="font-bayside text-7xl font-semibold tracking-[-0.02em] text-white">{step.number}</div>
+													<div className="mt-6 text-3xl font-semibold text-white">{step.title}</div>
+													<p className="mt-4 max-w-sm text-base leading-relaxed text-white/70">{step.description}</p>
+												</div>
+											)}
+										</div>
+
+										<div
+											className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+											aria-hidden="true"
+										>
+											<div className="absolute inset-0 bg-linear-to-br from-white/10 to-transparent" />
+										</div>
+									</button>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };

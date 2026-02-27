@@ -1,92 +1,124 @@
 "use client";
 
-import { ArrowRight, Play, Star, Chrome, User, MapPin, Building2, Search, Download, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedDiv from "../common/fade-in";
-import { Plus_Jakarta_Sans } from "next/font/google";
-
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
+import { Apple, ArrowUpRight, Chrome, Compass, Flame, Monitor, Terminal } from "lucide-react";
 
 export const HeroSection = () => {
-  const mockLeads = [
-    { name: "Sarah Chen", role: "VP of Sales", company: "TechCorp", location: "San Francisco", email: "sarah.c***@techcorp.com", phone: "+1 (415) ***-**42" },
-    { name: "Michael Roberts", role: "Head of Growth", company: "ScaleUp Inc", location: "New York", email: "m.robe***@scaleup.io", phone: "+1 (212) ***-**18" },
-    { name: "Emma Thompson", role: "Director of BD", company: "CloudBase", location: "Austin", email: "emma.t***@cloudbase.com", phone: "+1 (512) ***-**55" },
-    { name: "David Kim", role: "CRO", company: "DataFlow", location: "Seattle", email: "d.kim***@dataflow.co", phone: "+1 (206) ***-**73" },
-    { name: "Lisa Anderson", role: "Sales Director", company: "Nexus AI", location: "Boston", email: "l.ande***@nexusai.com", phone: "+1 (617) ***-**91" },
-  ];
-
   return (
-    <section
-      id="hero"
-      className="w-full flex flex-col items-center pt-[10rem] pb-10 relative overflow-hidden"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <div className="max-w-4xl mx-auto relative">
+    <section id="hero" className="relative w-full overflow-hidden bg-background">
+      {/* Soft page wash */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.92) 45%, rgba(255,255,255,0.98) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
-          {/* Center circle gradient - positioned exactly behind the text */}
-          <div 
-            className="absolute top-[70%] left-[10%] -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none -z-10"
-            style={{
-              background: 'radial-gradient(circle, rgba(147, 197, 253, 0.8) 0%, rgba(255, 255, 255, 0) 70%)',
-              filter: 'blur(60px)'
-            }}
-          />
+      {/* Corner gradients (like reference) */}
+      <img
+        src="/assets/yellow-gradient.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-35 top-30 z-0 w-[520px] max-w-none select-none opacity-70 blur-[1px]"
+        draggable={false}
+      />
+      <img
+        src="/assets/yellow-gradient.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-20 top-10 z-10 w-[420px] max-w-none select-none opacity-60 blur-[1px]"
+        draggable={false}
+      />
+      <img
+        src="/assets/Blue%20Gradient%20Image%20(2).png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-35 top-52 z-0 w-[420px] max-w-none select-none opacity-90 blur-[1px]"
+        draggable={false}
+      />
+      <img
+        src="/assets/Green%20Gradient%20Image%20(1).png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-52 bottom-16 w-[860px] max-w-none select-none opacity-65 blur-[1px]"
+        draggable={false}
+      />
 
-          {/* Headline */}
+      {/* Doodles */}
+      <img
+        src="/assets/Burst-pucker-1.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute left-16 top-[60%] hidden w-22 -translate-y-1/2 select-none md:block"
+        draggable={false}
+      />
+      <img
+        src="/assets/doodle.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute left-17 bottom-60 hidden w-40 select-none md:block"
+        draggable={false}
+      />
+      <img
+        src="/assets/3-line.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute left-45 top-30 hidden w-44 select-none md:block"
+        draggable={false}
+      />
+
+      <div className="container relative mx-auto px-4 pb-20 pt-36 text-center sm:px-6 lg:px-8 md:pt-48">
+        <div className="mx-auto max-w-5xl">
           <AnimatedDiv delay={0.1}>
-            <h1 className={`mb-6 md:text-5xl text-4xl font-bold text-slate-900 leading-[1.2] tracking-tight relative mt-0 ${jakarta.className}`}>
-              <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
-                Find. Connect. Close.
-              </span>
+            <h1 className="font-serif text-[48px] font-bold leading-[0.98] tracking-[-0.02em] text-black sm:text-[64px] md:text-[90px]">
+              Find more and <span className="font-light italic">get</span>
               <br />
-              10x Faster — With AI Lead Gen.
+              <span className="font-light italic">visibility</span> on your leads
             </h1>
           </AnimatedDiv>
 
-          {/* Subheadline */}
           <AnimatedDiv delay={0.2}>
-            <p className={`mb-6 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-2 !mt-0 ${jakarta.className}`}>
-              Forget spending hours searching for contacts. LeadFlow takes the heavy lifting off your plate so you can focus on closing deals.
+            <p className="mx-auto mt-9 max-w-xl text-xl leading-relaxed text-black md:text-base">
+              Discover verified B2B prospects, enrich contact data, and export lead lists in minutes — so your team can
+              focus on closing.
             </p>
           </AnimatedDiv>
 
-           {/* CTA Buttons */}
           <AnimatedDiv delay={0.3}>
-            <div className="mb-16 mx-auto w-full max-w-md flex md:flex-row flex-col justify-center items-center gap-3 px-4">
-              <Button size="lg" className="w-full md:w-auto rounded-md bg-blue-600 hover:bg-blue-700 transition-colors px-6 py-3 text-base font-medium text-white shadow-lg shadow-blue-500/30">
-                Start free trial
+            <div className="mt-10 flex flex-col items-center justify-center gap-4">
+              <Button
+                size="lg"
+                className="h-14 rounded-full bg-black px-12 py-4 text-[17px] font-semibold uppercase tracking-[0.18em] text-white hover:bg-black/90"
+              >
+                <span className="flex items-center gap-2">
+                  Try lead search
+                  <ArrowUpRight className="h-4 w-4" />
+                </span>
               </Button>
-              <Button variant="outline" size="lg" className="w-full md:w-auto rounded-md bg-white hover:bg-blue-50 text-blue-600 border border-blue-600 transition-colors px-6 py-3 text-base font-medium">
-                Watch Demo
-              </Button>
+
             </div>
           </AnimatedDiv>
-
         </div>
-      </div>
 
-      {/* Image Section */}
-      <AnimatedDiv delay={0.4} className="w-full mt-4">
-        <div className="relative w-full overflow-hidden bg-white/50 backdrop-blur-sm">
-          <div className="relative w-full aspect-[16/9] md:aspect-[21/9] flex items-center justify-center">
-            <img 
-              src="/assets/b.png" 
-              alt="Dashboard Preview Background" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="relative z-10 w-[90%] max-w-5xl rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white/10 backdrop-blur-md p-2">
-              <div className="rounded-xl overflow-hidden border border-white/30 bg-white/50 relative aspect-[16/9] flex items-center justify-center">
-                <img 
-                  src="/assets/img.png" 
-                  alt="Dashboard Preview" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
+        {/* Angled tablet image (below copy, like reference) */}
+        <AnimatedDiv delay={0.45} className="relative mt-16 mb-8 md:mb-12">
+          <div className="relative mx-auto h-[400px] max-w-6xl md:h-[700px]">             {/* Yellow gradient beside tab image */}
+             <div className="absolute -left-20 -top-20 z-0 w-[400px] opacity-80 md:-left-30 md:-top-44 md:w-[600px]">
+               <img src="/assets/yellow-gradient.png" alt="" className="h-auto w-full select-none" draggable={false} />
+             </div>            <div className="absolute left-1/2 top-10 w-[800px] max-w-none -translate-x-1/2 rotate-[-8deg] md:left-[50%] md:top-0 md:w-[1000px]">
+              <img
+                src="/assets/tabshot.png"
+                alt="Product preview"
+                className="h-auto w-full select-none drop-shadow-[0_40px_60px_rgba(0,0,0,0.25)]"
+                draggable={false}
+              />
             </div>
           </div>
-        </div>
-      </AnimatedDiv>
+        </AnimatedDiv>
+      </div>
     </section>
   );
 };

@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import AnimatedDiv from "@/components/common/fade-in";
 
 const faqs = [
   {
@@ -36,32 +37,34 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section id="faq" className="py-16 lg:py-20 relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center mb-12">
-            <h2 className="text-4xl sm:text-5xl font-normal text-gray-900 mb-4">
-            Frequently asked questions
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Common questions about our data, legality, and how LeadFind works.
-          </p>
+    <section id="faq" className="relative overflow-hidden bg-white py-20 sm:py-24">
+
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <AnimatedDiv>
+            <h2 className="text-balance font-sans text-5xl font-semibold leading-[1.05] tracking-[-0.02em] text-black sm:text-6xl">
+              Frequently asked <span className="font-serif italic">questions</span>
+            </h2>
+          </AnimatedDiv>
+          <AnimatedDiv delay={0.1}>
+            <p className="mt-6 text-base leading-relaxed text-black/70 sm:text-lg max-w-2xl mx-auto">
+              Common questions about our data, legality, and how LeadFind works.
+            </p>
+          </AnimatedDiv>
         </div>
-        
-        <div className="grid lg:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
+
+        <div className="mx-auto mt-12 grid max-w-6xl items-start gap-10 lg:grid-cols-2">
           {/* Image Side */}
-          <div className="order-2 lg:order-1 flex items-center justify-center hidden sm:flex">
+          <div className="order-2 hidden items-center justify-center sm:flex lg:order-1">
             <div className="relative w-full max-w-sm lg:max-w-md">
-              {/* Glow effect behind image */}
-              <div className="absolute inset-0 bg-foreground/5 rounded-full blur-3xl" />
+              <div className="pointer-events-none absolute -left-14 -top-10 h-52 w-52 rounded-full bg-yellow-500/15 blur-3xl" />
+              <div className="pointer-events-none absolute -right-10 -bottom-10 h-56 w-56 rounded-full bg-blue-500/15 blur-3xl" />
               <Image
-                src="/Questions-pana1.png"
+                src="/Questions-bro.svg"
                 alt="Frequently Asked Questions"
                 width={500}
                 height={500}
-                className="relative z-10 w-full h-auto"
+                className="relative z-10 h-auto w-full"
                 priority
               />
             </div>
@@ -74,12 +77,12 @@ export const FAQSection = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`} 
-                  className="border border-border rounded-xl px-5 data-[state=open]:bg-muted/50 data-[state=open]:border-foreground/20 transition-all duration-300 overflow-hidden"
+                  className="overflow-hidden rounded-2xl bg-white px-6 ring-1 ring-black/10 border-black/10 last:border-b transition-all duration-300 hover:ring-black/15 data-[state=open]:bg-black/5 data-[state=open]:ring-black/20 data-[state=open]:border-black/20"
                 >
-                  <AccordionTrigger className="text-left hover:no-underline py-4 font-semibold text-foreground">
+                  <AccordionTrigger className="py-4 text-left font-semibold text-black hover:no-underline">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
+                  <AccordionContent className="pb-4 leading-relaxed text-black/70">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

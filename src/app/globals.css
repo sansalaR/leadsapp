@@ -1,5 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@font-face {
+  font-family: "Bayside";
+  src: url("/fonts/bayside.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.font-bayside {
+  font-family: "Bayside", var(--font-serif);
+}
 
 :root {
   --background: oklch(1.0000 0 0);
@@ -8,7 +22,7 @@
   --card-foreground: oklch(0.3211 0 0);
   --popover: oklch(1.0000 0 0);
   --popover-foreground: oklch(0.3211 0 0);
-  --primary: oklch(30.872% 0.21397 264.073);
+  --primary: oklch(0% 0 0);
   --primary-foreground: oklch(1.0000 0 0);
   --secondary: oklch(100% 0.00011 271.152);
   --secondary-foreground: oklch(0.4461 0.0263 256.8018);

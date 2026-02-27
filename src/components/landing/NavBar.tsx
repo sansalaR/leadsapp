@@ -42,7 +42,7 @@ export const NavBar = () => {
           
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" size="sm">Log in</Button>
-            <Button size="sm">Get started</Button>
+            <Button size="sm" className="bg-black text-white hover:bg-black/90">Get started</Button>
           </div>
 
           <button 
